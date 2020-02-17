@@ -1,0 +1,43 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "ma.jconsulting.applications.btpproject",
+      "nativeLanguage": "fr"
+    },
+    "jhipsterVersion": "6.7.1",
+    "applicationType": "monolith",
+    "baseName": "btpprojects",
+    "packageName": "ma.jconsulting.applications.btpproject",
+    "packageFolder": "ma/jconsulting/applications/btpproject",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": "eureka",
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "ZGQyOGI2YzY4NzViYTI2ZDRjZWZjOTM5Y2I5Mjg2YmVkZmM1MTA5Nzk3MDJjMDUwNDJjY2MzOTRjNWNkN2FmZTJhMWNlYzYyODRlOTQwZmNhZDM2MjlhN2Q2MWUyYWEzOWI4NTA4ZDliNWUzZmMyZjBkNzMzNTZkMWIwMDI3MmY=",
+    "embeddableLaunchScript": false,
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "clientFramework": "angularX",
+    "clientTheme": "lumen",
+    "clientThemeVariant": "light",
+    "creationTimestamp": 1581866815785,
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": true,
+    "nativeLanguage": "fr",
+    "languages": ["fr"],
+    "blueprints": []
+  }
+}
