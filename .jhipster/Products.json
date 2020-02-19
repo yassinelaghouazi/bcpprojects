@@ -1,0 +1,45 @@
+{
+    "name": "Products",
+    "fields": [
+        {
+            "fieldName": "idProducts",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "productsDesc",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "recommendedPrice",
+            "fieldType": "Double"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "provider",
+            "otherEntityRelationshipName": "products",
+            "relationshipName": "recommendedProvider"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "ordersProducts",
+            "otherEntityRelationshipName": "products",
+            "relationshipName": "ordersProducts",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200216160000",
+    "entityTableName": "products",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

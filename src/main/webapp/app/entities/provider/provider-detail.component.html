@@ -1,0 +1,59 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="provider">
+            <h2><span jhiTranslate="btpprojectsApp.provider.detail.title">Provider</span> {{ provider.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="btpprojectsApp.provider.idProvider">Id Provider</span></dt>
+                <dd>
+                    <span>{{ provider.idProvider }}</span>
+                </dd>
+                <dt><span jhiTranslate="btpprojectsApp.provider.providerName">Provider Name</span></dt>
+                <dd>
+                    <span>{{ provider.providerName }}</span>
+                </dd>
+                <dt><span jhiTranslate="btpprojectsApp.provider.providerLogo">Provider Logo</span></dt>
+                <dd>
+                    <div *ngIf="provider.providerLogo">
+                        <a (click)="openFile(provider.providerLogoContentType!, provider.providerLogo)" jhiTranslate="entity.action.open">open</a>
+                        {{ provider.providerLogoContentType }}, {{ byteSize(provider.providerLogo) }}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="btpprojectsApp.provider.orders">Orders</span></dt>
+                <dd>
+                    <div *ngIf="provider.ordersId">
+                        <a [routerLink]="['/orders', provider.ordersId, 'view']">{{ provider.ordersId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="btpprojectsApp.provider.products">Products</span></dt>
+                <dd>
+                    <div *ngIf="provider.productsId">
+                        <a [routerLink]="['/products', provider.productsId, 'view']">{{ provider.productsId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="btpprojectsApp.provider.reglement">Reglement</span></dt>
+                <dd>
+                    <div *ngIf="provider.reglementId">
+                        <a [routerLink]="['/reglement', provider.reglementId, 'view']">{{ provider.reglementId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/provider', provider.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

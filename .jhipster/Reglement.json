@@ -1,0 +1,70 @@
+{
+    "name": "Reglement",
+    "fields": [
+        {
+            "fieldName": "idReglement",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "dateEffetReglement",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateReglement",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "montantReglement",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "commentaire",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "provider",
+            "otherEntityRelationshipName": "reglement",
+            "relationshipName": "provider"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "project",
+            "otherEntityRelationshipName": "reglement",
+            "relationshipName": "project"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "orders",
+            "otherEntityRelationshipName": "reglement",
+            "relationshipName": "orders"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "delivery",
+            "otherEntityRelationshipName": "reglement",
+            "relationshipName": "delivery"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "modePaiement",
+            "otherEntityRelationshipName": "reglement",
+            "relationshipName": "modePaiement"
+        }
+    ],
+    "changelogDate": "20200216160300",
+    "entityTableName": "reglement",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

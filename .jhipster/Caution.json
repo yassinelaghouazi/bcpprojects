@@ -1,0 +1,87 @@
+{
+    "name": "Caution",
+    "fields": [
+        {
+            "fieldName": "idcaution",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "montantCaution",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "objet",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "numeroCaution",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dateDemande",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateRetrait",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateDepot",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "numeroMarche",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "statusCaution",
+            "fieldType": "StatusCaution",
+            "fieldValues": "DEMANDEE,DEPOSEE,RETOURNEE"
+        },
+        {
+            "fieldName": "typeCaution",
+            "fieldType": "TypeCaution",
+            "fieldValues": "PROVISOIRE,DEFINITIVE"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "bopportunity",
+            "otherEntityRelationshipName": "caution",
+            "relationshipName": "bopportuniy"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "maitreOuvrage",
+            "otherEntityRelationshipName": "caution",
+            "javadoc": "A relationship",
+            "relationshipName": "maitreouvrage"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "banque",
+            "otherEntityRelationshipName": "caution",
+            "relationshipName": "banque"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "project",
+            "otherEntityRelationshipName": "caution",
+            "relationshipName": "project"
+        }
+    ],
+    "changelogDate": "20200216155200",
+    "entityTableName": "caution",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

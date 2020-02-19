@@ -1,0 +1,44 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="products">
+            <h2><span jhiTranslate="btpprojectsApp.products.detail.title">Products</span> {{ products.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="btpprojectsApp.products.idProducts">Id Products</span></dt>
+                <dd>
+                    <span>{{ products.idProducts }}</span>
+                </dd>
+                <dt><span jhiTranslate="btpprojectsApp.products.productsDesc">Products Desc</span></dt>
+                <dd>
+                    <span>{{ products.productsDesc }}</span>
+                </dd>
+                <dt><span jhiTranslate="btpprojectsApp.products.recommendedPrice">Recommended Price</span></dt>
+                <dd>
+                    <span>{{ products.recommendedPrice }}</span>
+                </dd>
+                <dt><span jhiTranslate="btpprojectsApp.products.ordersProducts">Orders Products</span></dt>
+                <dd>
+                    <div *ngIf="products.ordersProductsId">
+                        <a [routerLink]="['/orders-products', products.ordersProductsId, 'view']">{{ products.ordersProductsId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/products', products.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

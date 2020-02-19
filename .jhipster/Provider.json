@@ -1,0 +1,54 @@
+{
+    "name": "Provider",
+    "fields": [
+        {
+            "fieldName": "idProvider",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "providerName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "providerLogo",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "any"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "orders",
+            "otherEntityRelationshipName": "provider",
+            "relationshipName": "orders",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "products",
+            "otherEntityRelationshipName": "recommendedProvider",
+            "relationshipName": "products",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "reglement",
+            "otherEntityRelationshipName": "provider",
+            "relationshipName": "reglement",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200216160200",
+    "entityTableName": "provider",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

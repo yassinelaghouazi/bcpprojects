@@ -1,0 +1,82 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="orders">
+            <h2><span jhiTranslate="btpprojectsApp.orders.detail.title">Orders</span> {{ orders.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="btpprojectsApp.orders.idOrders">Id Orders</span></dt>
+                <dd>
+                    <span>{{ orders.idOrders }}</span>
+                </dd>
+                <dt><span jhiTranslate="btpprojectsApp.orders.ordersDesc">Orders Desc</span></dt>
+                <dd>
+                    <span>{{ orders.ordersDesc }}</span>
+                </dd>
+                <dt><span jhiTranslate="btpprojectsApp.orders.totalht">Totalht</span></dt>
+                <dd>
+                    <span>{{ orders.totalht }}</span>
+                </dd>
+                <dt><span jhiTranslate="btpprojectsApp.orders.totaltva">Totaltva</span></dt>
+                <dd>
+                    <span>{{ orders.totaltva }}</span>
+                </dd>
+                <dt><span jhiTranslate="btpprojectsApp.orders.totalttc">Totalttc</span></dt>
+                <dd>
+                    <span>{{ orders.totalttc }}</span>
+                </dd>
+                <dt><span jhiTranslate="btpprojectsApp.orders.ordersDate">Orders Date</span></dt>
+                <dd>
+                    <span>{{ orders.ordersDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="btpprojectsApp.orders.expectedDelivery">Expected Delivery</span></dt>
+                <dd>
+                    <span>{{ orders.expectedDelivery }}</span>
+                </dd>
+                <dt><span jhiTranslate="btpprojectsApp.orders.tvamoyenne">Tvamoyenne</span></dt>
+                <dd>
+                    <span>{{ orders.tvamoyenne }}</span>
+                </dd>
+                <dt><span jhiTranslate="btpprojectsApp.orders.delivery">Delivery</span></dt>
+                <dd>
+                    <div *ngIf="orders.deliveryId">
+                        <a [routerLink]="['/delivery', orders.deliveryId, 'view']">{{ orders.deliveryId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="btpprojectsApp.orders.ordersProducts">Orders Products</span></dt>
+                <dd>
+                    <div *ngIf="orders.ordersProductsId">
+                        <a [routerLink]="['/orders-products', orders.ordersProductsId, 'view']">{{ orders.ordersProductsId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="btpprojectsApp.orders.ordersServices">Orders Services</span></dt>
+                <dd>
+                    <div *ngIf="orders.ordersServicesId">
+                        <a [routerLink]="['/orders-services', orders.ordersServicesId, 'view']">{{ orders.ordersServicesId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="btpprojectsApp.orders.reglement">Reglement</span></dt>
+                <dd>
+                    <div *ngIf="orders.reglementId">
+                        <a [routerLink]="['/reglement', orders.reglementId, 'view']">{{ orders.reglementId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/orders', orders.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

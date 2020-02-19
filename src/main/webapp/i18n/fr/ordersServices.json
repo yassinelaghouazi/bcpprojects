@@ -1,0 +1,26 @@
+{
+  "btpprojectsApp": {
+    "ordersServices": {
+      "home": {
+        "title": "OrdersServices",
+        "createLabel": "Créer un nouveau Orders Services",
+        "createOrEditLabel": "Créer ou éditer un Orders Services",
+        "notFound": "Aucun Orders Services trouvé"
+      },
+      "created": "Un nouveau Orders Services a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Orders Services avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Orders Services avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Orders Services {{ id }} ?"
+      },
+      "detail": {
+        "title": "Orders Services"
+      },
+      "idOrdersServices": "Id Orders Services",
+      "tarifJournalier": "Tarif Journalier",
+      "joursHomme": "Jours Homme",
+      "orders": "Orders",
+      "services": "Services"
+    }
+  }
+}

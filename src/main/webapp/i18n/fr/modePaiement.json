@@ -1,0 +1,24 @@
+{
+  "btpprojectsApp": {
+    "modePaiement": {
+      "home": {
+        "title": "ModePaiements",
+        "createLabel": "Créer un nouveau Mode Paiement",
+        "createOrEditLabel": "Créer ou éditer un Mode Paiement",
+        "notFound": "Aucun Mode Paiement trouvé"
+      },
+      "created": "Un nouveau Mode Paiement a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Mode Paiement avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Mode Paiement avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Mode Paiement {{ id }} ?"
+      },
+      "detail": {
+        "title": "Mode Paiement"
+      },
+      "idModePaiement": "Id Mode Paiement",
+      "modePaiement": "Mode Paiement",
+      "reglement": "Reglement"
+    }
+  }
+}

@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="maitreOuvrage">
+            <h2><span jhiTranslate="btpprojectsApp.maitreOuvrage.detail.title">Maitre Ouvrage</span> {{ maitreOuvrage.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="btpprojectsApp.maitreOuvrage.idMaitreOuvrage">Id Maitre Ouvrage</span></dt>
+                <dd>
+                    <span>{{ maitreOuvrage.idMaitreOuvrage }}</span>
+                </dd>
+                <dt><span jhiTranslate="btpprojectsApp.maitreOuvrage.nom">Nom</span></dt>
+                <dd>
+                    <span>{{ maitreOuvrage.nom }}</span>
+                </dd>
+                <dt><span jhiTranslate="btpprojectsApp.maitreOuvrage.email">Email</span></dt>
+                <dd>
+                    <span>{{ maitreOuvrage.email }}</span>
+                </dd>
+                <dt><span jhiTranslate="btpprojectsApp.maitreOuvrage.tel">Tel</span></dt>
+                <dd>
+                    <span>{{ maitreOuvrage.tel }}</span>
+                </dd>
+                <dt><span jhiTranslate="btpprojectsApp.maitreOuvrage.contactPersonne">Contact Personne</span></dt>
+                <dd>
+                    <span>{{ maitreOuvrage.contactPersonne }}</span>
+                </dd>
+                <dt><span jhiTranslate="btpprojectsApp.maitreOuvrage.bopportunity">Bopportunity</span></dt>
+                <dd>
+                    <div *ngIf="maitreOuvrage.bopportunityId">
+                        <a [routerLink]="['/bopportunity', maitreOuvrage.bopportunityId, 'view']">{{ maitreOuvrage.bopportunityId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="btpprojectsApp.maitreOuvrage.caution">Caution</span></dt>
+                <dd>
+                    <div *ngIf="maitreOuvrage.cautionId">
+                        <a [routerLink]="['/caution', maitreOuvrage.cautionId, 'view']">{{ maitreOuvrage.cautionId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/maitre-ouvrage', maitreOuvrage.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

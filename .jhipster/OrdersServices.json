@@ -1,0 +1,44 @@
+{
+    "name": "OrdersServices",
+    "fields": [
+        {
+            "fieldName": "idOrdersServices",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "tarifJournalier",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "joursHomme",
+            "fieldType": "Double"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "orders",
+            "otherEntityRelationshipName": "ordersServices",
+            "relationshipName": "orders"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "services",
+            "otherEntityRelationshipName": "ordersServices",
+            "relationshipName": "services"
+        }
+    ],
+    "changelogDate": "20200216155900",
+    "entityTableName": "orders_services",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

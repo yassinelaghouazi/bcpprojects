@@ -1,0 +1,70 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="project">
+            <h2><span jhiTranslate="btpprojectsApp.project.detail.title">Project</span> {{ project.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="btpprojectsApp.project.idProject">Id Project</span></dt>
+                <dd>
+                    <span>{{ project.idProject }}</span>
+                </dd>
+                <dt><span jhiTranslate="btpprojectsApp.project.projectName">Project Name</span></dt>
+                <dd>
+                    <span>{{ project.projectName }}</span>
+                </dd>
+                <dt><span jhiTranslate="btpprojectsApp.project.projectDescription">Project Description</span></dt>
+                <dd>
+                    <span>{{ project.projectDescription }}</span>
+                </dd>
+                <dt><span jhiTranslate="btpprojectsApp.project.budget">Budget</span></dt>
+                <dd>
+                    <span>{{ project.budget }}</span>
+                </dd>
+                <dt><span jhiTranslate="btpprojectsApp.project.numeroMarche">Numero Marche</span></dt>
+                <dd>
+                    <span>{{ project.numeroMarche }}</span>
+                </dd>
+                <dt><span jhiTranslate="btpprojectsApp.project.caution">Caution</span></dt>
+                <dd>
+                    <div *ngIf="project.cautionId">
+                        <a [routerLink]="['/caution', project.cautionId, 'view']">{{ project.cautionId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="btpprojectsApp.project.delivery">Delivery</span></dt>
+                <dd>
+                    <div *ngIf="project.deliveryId">
+                        <a [routerLink]="['/delivery', project.deliveryId, 'view']">{{ project.deliveryId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="btpprojectsApp.project.orders">Orders</span></dt>
+                <dd>
+                    <div *ngIf="project.ordersId">
+                        <a [routerLink]="['/orders', project.ordersId, 'view']">{{ project.ordersId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="btpprojectsApp.project.reglement">Reglement</span></dt>
+                <dd>
+                    <div *ngIf="project.reglementId">
+                        <a [routerLink]="['/reglement', project.reglementId, 'view']">{{ project.reglementId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/project', project.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

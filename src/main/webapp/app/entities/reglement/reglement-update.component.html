@@ -1,0 +1,74 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-reglement-heading" jhiTranslate="btpprojectsApp.reglement.home.createOrEditLabel">Create or edit a Reglement</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="btpprojectsApp.reglement.idReglement" for="field_idReglement">Id Reglement</label>
+                    <input type="number" class="form-control" name="idReglement" id="field_idReglement"
+                           formControlName="idReglement"/>
+                    <div *ngIf="editForm.get('idReglement')!.invalid && (editForm.get('idReglement')!.dirty || editForm.get('idReglement')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('idReglement')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('idReglement')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="btpprojectsApp.reglement.dateEffetReglement" for="field_dateEffetReglement">Date Effet Reglement</label>
+                    <div class="input-group">
+                        <input id="field_dateEffetReglement" type="text" class="form-control" name="dateEffetReglement" ngbDatepicker #dateEffetReglementDp="ngbDatepicker" formControlName="dateEffetReglement"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateEffetReglementDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="btpprojectsApp.reglement.dateReglement" for="field_dateReglement">Date Reglement</label>
+                    <div class="input-group">
+                        <input id="field_dateReglement" type="text" class="form-control" name="dateReglement" ngbDatepicker #dateReglementDp="ngbDatepicker" formControlName="dateReglement"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateReglementDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="btpprojectsApp.reglement.montantReglement" for="field_montantReglement">Montant Reglement</label>
+                    <input type="number" class="form-control" name="montantReglement" id="field_montantReglement"
+                           formControlName="montantReglement"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="btpprojectsApp.reglement.commentaire" for="field_commentaire">Commentaire</label>
+                    <input type="text" class="form-control" name="commentaire" id="field_commentaire"
+                           formControlName="commentaire"/>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

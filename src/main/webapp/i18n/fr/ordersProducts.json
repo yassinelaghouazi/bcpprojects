@@ -1,0 +1,30 @@
+{
+  "btpprojectsApp": {
+    "ordersProducts": {
+      "home": {
+        "title": "OrdersProducts",
+        "createLabel": "Créer un nouveau Orders Products",
+        "createOrEditLabel": "Créer ou éditer un Orders Products",
+        "notFound": "Aucun Orders Products trouvé"
+      },
+      "created": "Un nouveau Orders Products a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Orders Products avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Orders Products avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Orders Products {{ id }} ?"
+      },
+      "detail": {
+        "title": "Orders Products"
+      },
+      "idOrdersProducts": "Id Orders Products",
+      "unitPrice": "Unit Price",
+      "quantite": "Quantite",
+      "tva": "Tva",
+      "totalHT": "Total HT",
+      "montantTVA": "Montant TVA",
+      "totalTTC": "Total TTC",
+      "orders": "Orders",
+      "products": "Products"
+    }
+  }
+}

@@ -1,0 +1,86 @@
+{
+    "name": "Bopportunity",
+    "fields": [
+        {
+            "fieldName": "idBopportunity",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "dateRemisePlis",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "montantCaution",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "objetAffaire",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "estimationBudget",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "commentaire",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "numeroAppelOffre",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "numeroMarche",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "url",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "maitreOuvrage",
+            "otherEntityRelationshipName": "bopportunity",
+            "relationshipName": "maitreOuvrage"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "company",
+            "otherEntityRelationshipName": "bopportunity",
+            "javadoc": "A relationship",
+            "relationshipName": "company"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "caution",
+            "otherEntityRelationshipName": "bopportuniy",
+            "relationshipName": "caution",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "project",
+            "otherEntityRelationshipName": "bopportuniy",
+            "relationshipName": "project",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200216155100",
+    "entityTableName": "bopportunity",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

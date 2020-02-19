@@ -1,0 +1,66 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="caution">
+            <h2><span jhiTranslate="btpprojectsApp.caution.detail.title">Caution</span> {{ caution.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="btpprojectsApp.caution.idcaution">Idcaution</span></dt>
+                <dd>
+                    <span>{{ caution.idcaution }}</span>
+                </dd>
+                <dt><span jhiTranslate="btpprojectsApp.caution.montantCaution">Montant Caution</span></dt>
+                <dd>
+                    <span>{{ caution.montantCaution }}</span>
+                </dd>
+                <dt><span jhiTranslate="btpprojectsApp.caution.objet">Objet</span></dt>
+                <dd>
+                    <span>{{ caution.objet }}</span>
+                </dd>
+                <dt><span jhiTranslate="btpprojectsApp.caution.numeroCaution">Numero Caution</span></dt>
+                <dd>
+                    <span>{{ caution.numeroCaution }}</span>
+                </dd>
+                <dt><span jhiTranslate="btpprojectsApp.caution.dateDemande">Date Demande</span></dt>
+                <dd>
+                    <span>{{ caution.dateDemande }}</span>
+                </dd>
+                <dt><span jhiTranslate="btpprojectsApp.caution.dateRetrait">Date Retrait</span></dt>
+                <dd>
+                    <span>{{ caution.dateRetrait }}</span>
+                </dd>
+                <dt><span jhiTranslate="btpprojectsApp.caution.dateDepot">Date Depot</span></dt>
+                <dd>
+                    <span>{{ caution.dateDepot }}</span>
+                </dd>
+                <dt><span jhiTranslate="btpprojectsApp.caution.numeroMarche">Numero Marche</span></dt>
+                <dd>
+                    <span>{{ caution.numeroMarche }}</span>
+                </dd>
+                <dt><span jhiTranslate="btpprojectsApp.caution.statusCaution">Status Caution</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'btpprojectsApp.StatusCaution.' + caution.statusCaution }}">{{ caution.statusCaution }}</span>
+                </dd>
+                <dt><span jhiTranslate="btpprojectsApp.caution.typeCaution">Type Caution</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'btpprojectsApp.TypeCaution.' + caution.typeCaution }}">{{ caution.typeCaution }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/caution', caution.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

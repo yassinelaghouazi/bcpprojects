@@ -1,0 +1,83 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-company-heading" jhiTranslate="btpprojectsApp.company.home.createOrEditLabel">Create or edit a Company</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="btpprojectsApp.company.idcompany" for="field_idcompany">Idcompany</label>
+                    <input type="number" class="form-control" name="idcompany" id="field_idcompany"
+                           formControlName="idcompany"/>
+                    <div *ngIf="editForm.get('idcompany')!.invalid && (editForm.get('idcompany')!.dirty || editForm.get('idcompany')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('idcompany')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('idcompany')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="btpprojectsApp.company.companyName" for="field_companyName">Company Name</label>
+                    <input type="text" class="form-control" name="companyName" id="field_companyName"
+                           formControlName="companyName"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="btpprojectsApp.company.companyLogo" for="field_companyLogo">Company Logo</label>
+                    <div>
+                        <div *ngIf="editForm.get('companyLogo')!.value" class="form-text text-danger clearfix">
+                            <a class="pull-left" (click)="openFile(editForm.get('companyLogoContentType')!.value, editForm.get('companyLogo')!.value)" jhiTranslate="entity.action.open">open</a><br>
+                            <span class="pull-left">{{ editForm.get('companyLogoContentType')!.value }}, {{ byteSize(editForm.get('companyLogo')!.value) }}</span>
+                            <button type="button" (click)="editForm.patchValue({companyLogo: null});editForm.patchValue({companyLogoContentType: null});"
+                                    class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon icon="times"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_companyLogo" (change)="setFileData($event, 'companyLogo', false)" jhiTranslate="entity.action.addblob"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="companyLogo" id="field_companyLogo"
+                           formControlName="companyLogo"/>
+                    <input type="hidden" class="form-control" name="companyLogoContentType" id="field_companyLogoContentType"
+                           formControlName="companyLogoContentType" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="btpprojectsApp.company.bopportunity" for="field_bopportunity">Bopportunity</label>
+                    <select class="form-control" id="field_bopportunity" name="bopportunity" formControlName="bopportunityId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="bopportunityOption.id" *ngFor="let bopportunityOption of bopportunities; trackBy: trackById">{{ bopportunityOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="btpprojectsApp.company.project" for="field_project">Project</label>
+                    <select class="form-control" id="field_project" name="project" formControlName="projectId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="projectOption.id" *ngFor="let projectOption of projects; trackBy: trackById">{{ projectOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

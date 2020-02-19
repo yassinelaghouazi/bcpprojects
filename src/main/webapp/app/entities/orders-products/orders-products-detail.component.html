@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="ordersProducts">
+            <h2><span jhiTranslate="btpprojectsApp.ordersProducts.detail.title">Orders Products</span> {{ ordersProducts.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="btpprojectsApp.ordersProducts.idOrdersProducts">Id Orders Products</span></dt>
+                <dd>
+                    <span>{{ ordersProducts.idOrdersProducts }}</span>
+                </dd>
+                <dt><span jhiTranslate="btpprojectsApp.ordersProducts.unitPrice">Unit Price</span></dt>
+                <dd>
+                    <span>{{ ordersProducts.unitPrice }}</span>
+                </dd>
+                <dt><span jhiTranslate="btpprojectsApp.ordersProducts.quantite">Quantite</span></dt>
+                <dd>
+                    <span>{{ ordersProducts.quantite }}</span>
+                </dd>
+                <dt><span jhiTranslate="btpprojectsApp.ordersProducts.tva">Tva</span></dt>
+                <dd>
+                    <span>{{ ordersProducts.tva }}</span>
+                </dd>
+                <dt><span jhiTranslate="btpprojectsApp.ordersProducts.totalHT">Total HT</span></dt>
+                <dd>
+                    <span>{{ ordersProducts.totalHT }}</span>
+                </dd>
+                <dt><span jhiTranslate="btpprojectsApp.ordersProducts.montantTVA">Montant TVA</span></dt>
+                <dd>
+                    <span>{{ ordersProducts.montantTVA }}</span>
+                </dd>
+                <dt><span jhiTranslate="btpprojectsApp.ordersProducts.totalTTC">Total TTC</span></dt>
+                <dd>
+                    <span>{{ ordersProducts.totalTTC }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/orders-products', ordersProducts.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

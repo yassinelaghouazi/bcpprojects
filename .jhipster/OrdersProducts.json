@@ -1,0 +1,60 @@
+{
+    "name": "OrdersProducts",
+    "fields": [
+        {
+            "fieldName": "idOrdersProducts",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "unitPrice",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "quantite",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "tva",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "totalHT",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "montantTVA",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "totalTTC",
+            "fieldType": "Double"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "orders",
+            "otherEntityRelationshipName": "ordersProducts",
+            "relationshipName": "orders"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "products",
+            "otherEntityRelationshipName": "ordersProducts",
+            "relationshipName": "products"
+        }
+    ],
+    "changelogDate": "20200216155800",
+    "entityTableName": "orders_products",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

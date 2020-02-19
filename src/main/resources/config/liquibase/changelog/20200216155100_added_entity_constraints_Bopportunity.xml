@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity Bopportunity.
+    -->
+    <changeSet id="20200216155100-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="caution_id"
+                                 baseTableName="bopportunity"
+                                 constraintName="fk_bopportunity_caution_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="caution"/>
+
+        <addForeignKeyConstraint baseColumnNames="project_id"
+                                 baseTableName="bopportunity"
+                                 constraintName="fk_bopportunity_project_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="project"/>
+
+    </changeSet>
+</databaseChangeLog>

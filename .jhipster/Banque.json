@@ -1,0 +1,50 @@
+{
+    "name": "Banque",
+    "fields": [
+        {
+            "fieldName": "idBanque",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "banque",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "contactEmail",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "contactTel",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "adresseAgence",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "caution",
+            "otherEntityRelationshipName": "banque",
+            "relationshipName": "caution",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200216155000",
+    "entityTableName": "banque",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,35 @@
+{
+    "name": "ModePaiement",
+    "fields": [
+        {
+            "fieldName": "idModePaiement",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "modePaiement",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "reglement",
+            "otherEntityRelationshipName": "modePaiement",
+            "relationshipName": "reglement",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200216155600",
+    "entityTableName": "mode_paiement",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

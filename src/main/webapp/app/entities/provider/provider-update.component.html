@@ -1,0 +1,91 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-provider-heading" jhiTranslate="btpprojectsApp.provider.home.createOrEditLabel">Create or edit a Provider</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="btpprojectsApp.provider.idProvider" for="field_idProvider">Id Provider</label>
+                    <input type="number" class="form-control" name="idProvider" id="field_idProvider"
+                           formControlName="idProvider"/>
+                    <div *ngIf="editForm.get('idProvider')!.invalid && (editForm.get('idProvider')!.dirty || editForm.get('idProvider')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('idProvider')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('idProvider')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="btpprojectsApp.provider.providerName" for="field_providerName">Provider Name</label>
+                    <input type="text" class="form-control" name="providerName" id="field_providerName"
+                           formControlName="providerName"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="btpprojectsApp.provider.providerLogo" for="field_providerLogo">Provider Logo</label>
+                    <div>
+                        <div *ngIf="editForm.get('providerLogo')!.value" class="form-text text-danger clearfix">
+                            <a class="pull-left" (click)="openFile(editForm.get('providerLogoContentType')!.value, editForm.get('providerLogo')!.value)" jhiTranslate="entity.action.open">open</a><br>
+                            <span class="pull-left">{{ editForm.get('providerLogoContentType')!.value }}, {{ byteSize(editForm.get('providerLogo')!.value) }}</span>
+                            <button type="button" (click)="editForm.patchValue({providerLogo: null});editForm.patchValue({providerLogoContentType: null});"
+                                    class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon icon="times"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_providerLogo" (change)="setFileData($event, 'providerLogo', false)" jhiTranslate="entity.action.addblob"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="providerLogo" id="field_providerLogo"
+                           formControlName="providerLogo"/>
+                    <input type="hidden" class="form-control" name="providerLogoContentType" id="field_providerLogoContentType"
+                           formControlName="providerLogoContentType" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="btpprojectsApp.provider.orders" for="field_orders">Orders</label>
+                    <select class="form-control" id="field_orders" name="orders" formControlName="ordersId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="ordersOption.id" *ngFor="let ordersOption of orders; trackBy: trackById">{{ ordersOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="btpprojectsApp.provider.products" for="field_products">Products</label>
+                    <select class="form-control" id="field_products" name="products" formControlName="productsId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="productsOption.id" *ngFor="let productsOption of products; trackBy: trackById">{{ productsOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="btpprojectsApp.provider.reglement" for="field_reglement">Reglement</label>
+                    <select class="form-control" id="field_reglement" name="reglement" formControlName="reglementId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="reglementOption.id" *ngFor="let reglementOption of reglements; trackBy: trackById">{{ reglementOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

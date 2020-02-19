@@ -1,0 +1,124 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-orders-heading" jhiTranslate="btpprojectsApp.orders.home.createOrEditLabel">Create or edit a Orders</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="btpprojectsApp.orders.idOrders" for="field_idOrders">Id Orders</label>
+                    <input type="number" class="form-control" name="idOrders" id="field_idOrders"
+                           formControlName="idOrders"/>
+                    <div *ngIf="editForm.get('idOrders')!.invalid && (editForm.get('idOrders')!.dirty || editForm.get('idOrders')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('idOrders')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('idOrders')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="btpprojectsApp.orders.ordersDesc" for="field_ordersDesc">Orders Desc</label>
+                    <input type="text" class="form-control" name="ordersDesc" id="field_ordersDesc"
+                           formControlName="ordersDesc"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="btpprojectsApp.orders.totalht" for="field_totalht">Totalht</label>
+                    <input type="number" class="form-control" name="totalht" id="field_totalht"
+                           formControlName="totalht"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="btpprojectsApp.orders.totaltva" for="field_totaltva">Totaltva</label>
+                    <input type="number" class="form-control" name="totaltva" id="field_totaltva"
+                           formControlName="totaltva"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="btpprojectsApp.orders.totalttc" for="field_totalttc">Totalttc</label>
+                    <input type="number" class="form-control" name="totalttc" id="field_totalttc"
+                           formControlName="totalttc"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="btpprojectsApp.orders.ordersDate" for="field_ordersDate">Orders Date</label>
+                    <div class="input-group">
+                        <input id="field_ordersDate" type="text" class="form-control" name="ordersDate" ngbDatepicker #ordersDateDp="ngbDatepicker" formControlName="ordersDate"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="ordersDateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="btpprojectsApp.orders.expectedDelivery" for="field_expectedDelivery">Expected Delivery</label>
+                    <div class="input-group">
+                        <input id="field_expectedDelivery" type="text" class="form-control" name="expectedDelivery" ngbDatepicker #expectedDeliveryDp="ngbDatepicker" formControlName="expectedDelivery"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="expectedDeliveryDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="btpprojectsApp.orders.tvamoyenne" for="field_tvamoyenne">Tvamoyenne</label>
+                    <input type="number" class="form-control" name="tvamoyenne" id="field_tvamoyenne"
+                           formControlName="tvamoyenne"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="btpprojectsApp.orders.delivery" for="field_delivery">Delivery</label>
+                    <select class="form-control" id="field_delivery" name="delivery" formControlName="deliveryId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="deliveryOption.id" *ngFor="let deliveryOption of deliveries; trackBy: trackById">{{ deliveryOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="btpprojectsApp.orders.ordersProducts" for="field_ordersProducts">Orders Products</label>
+                    <select class="form-control" id="field_ordersProducts" name="ordersProducts" formControlName="ordersProductsId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="ordersProductsOption.id" *ngFor="let ordersProductsOption of ordersproducts; trackBy: trackById">{{ ordersProductsOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="btpprojectsApp.orders.ordersServices" for="field_ordersServices">Orders Services</label>
+                    <select class="form-control" id="field_ordersServices" name="ordersServices" formControlName="ordersServicesId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="ordersServicesOption.id" *ngFor="let ordersServicesOption of ordersservices; trackBy: trackById">{{ ordersServicesOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="btpprojectsApp.orders.reglement" for="field_reglement">Reglement</label>
+                    <select class="form-control" id="field_reglement" name="reglement" formControlName="reglementId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="reglementOption.id" *ngFor="let reglementOption of reglements; trackBy: trackById">{{ reglementOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

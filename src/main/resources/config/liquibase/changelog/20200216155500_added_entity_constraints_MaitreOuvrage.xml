@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity MaitreOuvrage.
+    -->
+    <changeSet id="20200216155500-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="bopportunity_id"
+                                 baseTableName="maitre_ouvrage"
+                                 constraintName="fk_maitre_ouvrage_bopportunity_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="bopportunity"/>
+
+        <addForeignKeyConstraint baseColumnNames="caution_id"
+                                 baseTableName="maitre_ouvrage"
+                                 constraintName="fk_maitre_ouvrage_caution_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="caution"/>
+
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,80 @@
+{
+    "name": "Project",
+    "fields": [
+        {
+            "fieldName": "idProject",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "projectName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "projectDescription",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "budget",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "numeroMarche",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "company",
+            "otherEntityRelationshipName": "project",
+            "relationshipName": "company"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "bopportunity",
+            "otherEntityRelationshipName": "project",
+            "relationshipName": "bopportuniy"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "caution",
+            "otherEntityRelationshipName": "project",
+            "relationshipName": "caution",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "delivery",
+            "otherEntityRelationshipName": "project",
+            "relationshipName": "delivery",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "orders",
+            "otherEntityRelationshipName": "project",
+            "relationshipName": "orders",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "reglement",
+            "otherEntityRelationshipName": "project",
+            "relationshipName": "reglement",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200216160100",
+    "entityTableName": "project",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

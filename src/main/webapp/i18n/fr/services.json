@@ -1,0 +1,24 @@
+{
+  "btpprojectsApp": {
+    "services": {
+      "home": {
+        "title": "Services",
+        "createLabel": "Créer un nouveau Services",
+        "createOrEditLabel": "Créer ou éditer un Services",
+        "notFound": "Aucun Services trouvé"
+      },
+      "created": "Un nouveau Services a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Services avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Services avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Services {{ id }} ?"
+      },
+      "detail": {
+        "title": "Services"
+      },
+      "idServices": "Id Services",
+      "servicesDesc": "Services Desc",
+      "ordersServices": "Orders Services"
+    }
+  }
+}

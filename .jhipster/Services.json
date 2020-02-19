@@ -1,0 +1,35 @@
+{
+    "name": "Services",
+    "fields": [
+        {
+            "fieldName": "idServices",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "servicesDesc",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "ordersServices",
+            "otherEntityRelationshipName": "services",
+            "relationshipName": "ordersServices",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200216160400",
+    "entityTableName": "services",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

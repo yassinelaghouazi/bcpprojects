@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity Project.
+    -->
+    <changeSet id="20200216160100-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="caution_id"
+                                 baseTableName="project"
+                                 constraintName="fk_project_caution_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="caution"/>
+
+        <addForeignKeyConstraint baseColumnNames="delivery_id"
+                                 baseTableName="project"
+                                 constraintName="fk_project_delivery_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="delivery"/>
+
+        <addForeignKeyConstraint baseColumnNames="orders_id"
+                                 baseTableName="project"
+                                 constraintName="fk_project_orders_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="orders"/>
+
+        <addForeignKeyConstraint baseColumnNames="reglement_id"
+                                 baseTableName="project"
+                                 constraintName="fk_project_reglement_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="reglement"/>
+
+    </changeSet>
+</databaseChangeLog>

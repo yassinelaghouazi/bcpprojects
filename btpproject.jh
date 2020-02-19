@@ -1,0 +1,240 @@
+entity Banque {
+	idBanque Long required,
+    banque String required,
+  contactEmail String,
+  contactTel String,
+  adresseAgence String,
+  
+    
+}
+
+entity Bopportunity {
+	
+  idBopportunity Long required,
+  dateRemisePlis LocalDate,
+  montantCaution Double ,
+  objetAffaire String,
+  estimationBudget Double,
+  commentaire String,
+  numeroAppelOffre String required,
+  numeroMarche String,
+  url String,
+}
+
+
+entity Caution {
+  idcaution Long required,
+  montantCaution Double,
+  objet String,
+  numeroCaution String,
+  dateDemande LocalDate,
+  dateRetrait LocalDate,
+  dateDepot LocalDate,    
+  numeroMarche String,
+  statusCaution StatusCaution,
+  typeCaution TypeCaution
+  }
+  
+  
+entity Company {
+  idcompany Long required,
+  companyName String,
+  companyLogo Blob
+  }
+  
+entity Delivery  {
+  idDelivery Long required,
+  deliveryDescription String,
+  deliveryDate LocalDate,
+  subTotal Double,
+  vatamount Double,
+  total Double
+  }
+  
+  entity MaitreOuvrage{
+  idMaitreOuvrage Long,
+  nom String,
+  email String,
+  tel String,
+  contactPersonne String
+  }
+
+  
+  entity ModePaiement {
+  idModePaiement Long required,
+  modePaiement String
+  }
+  
+  entity Orders {
+  idOrders Long required,
+  ordersDesc String ,
+  totalht  Double,
+  totaltva Double,
+  totalttc Double,
+  ordersDate LocalDate,
+  expectedDelivery LocalDate,
+  tvamoyenne Double
+  }
+  
+  entity OrdersProducts{
+  idOrdersProducts Long required,
+   unitPrice Double,
+   quantite Double,
+   tva Double,
+   totalHT Double,
+   montantTVA Double ,
+   totalTTC Double 
+  }
+  
+  entity OrdersServices{
+  idOrdersServices Long required,
+  tarifJournalier Double,
+  joursHomme Double
+ }
+ 
+  entity Products{
+   idProducts Long required,
+   productsDesc String,
+   recommendedPrice Double,
+   }
+  
+  entity Project{
+  
+   idProject Long required,
+   projectName String,
+   projectDescription String,
+   budget Double,
+   numeroMarche String
+}
+  
+  entity Provider {
+   idProvider Long required,
+   providerName String,
+   providerLogo Blob
+  }
+  
+  entity Reglement{
+   idReglement Long required,
+   dateEffetReglement LocalDate,
+   dateReglement LocalDate,
+   montantReglement Double,
+   commentaire String
+}
+  
+  entity Services {
+  idServices Long required,
+  servicesDesc String
+ }
+ 
+  
+  
+  
+  
+  
+  
+  
+  
+
+//bopportunity -- maitre ouvrage
+
+relationship OneToMany {
+	Bopportunity{maitreOuvrage} to MaitreOuvrage,
+	/**
+	* A relationship
+	*/
+	Bopportunity{company} to Company
+}
+
+relationship OneToMany {
+	Caution{bopportuniy} to Bopportunity,
+	/**
+	* A relationship
+	*/
+	Caution{maitreouvrage} to MaitreOuvrage,
+    
+    Caution{banque} to Banque,
+    
+    Caution{project} to Project
+    
+}
+
+
+relationship OneToMany {
+    
+    Delivery{project} to Project,
+    
+    Delivery{orders} to Orders
+    
+}
+
+relationship OneToMany {
+    
+    Orders{project} to Project,
+    
+    Orders{provider} to Provider
+    
+}
+
+relationship OneToMany {
+    
+    OrdersProducts{orders} to Orders,
+    
+    OrdersProducts{products} to Products
+    
+}
+
+relationship OneToMany {
+    
+    OrdersServices{orders} to Orders,
+    
+    OrdersServices{services} to Services
+    
+}
+
+relationship OneToMany {
+    
+    Products{recommendedProvider} to Provider
+    
+}
+
+relationship OneToMany {
+    
+    Project{company} to Company,
+    Project{bopportuniy} to Bopportunity
+    
+}
+
+relationship OneToMany {
+    
+    Reglement{provider} to Provider,
+    Reglement{project} to Project,
+    Reglement{orders} to Orders,
+    Reglement{delivery} to Delivery,
+    Reglement{modePaiement} to ModePaiement
+    
+}
+
+
+enum StatusCaution {
+  DEMANDEE,
+  DEPOSEE ,
+  RETOURNEE 
+}
+
+
+enum TypeCaution {
+  PROVISOIRE,
+  DEFINITIVE
+}
+
+// Set pagination options
+paginate all with pagination
+
+// Use Data Transfert Objects (DTO)
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl 
+
+// Set an angular suffix
+// angularSuffix * with mySuffix

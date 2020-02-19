@@ -1,0 +1,98 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-project-heading" jhiTranslate="btpprojectsApp.project.home.createOrEditLabel">Create or edit a Project</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="btpprojectsApp.project.idProject" for="field_idProject">Id Project</label>
+                    <input type="number" class="form-control" name="idProject" id="field_idProject"
+                           formControlName="idProject"/>
+                    <div *ngIf="editForm.get('idProject')!.invalid && (editForm.get('idProject')!.dirty || editForm.get('idProject')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('idProject')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('idProject')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="btpprojectsApp.project.projectName" for="field_projectName">Project Name</label>
+                    <input type="text" class="form-control" name="projectName" id="field_projectName"
+                           formControlName="projectName"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="btpprojectsApp.project.projectDescription" for="field_projectDescription">Project Description</label>
+                    <input type="text" class="form-control" name="projectDescription" id="field_projectDescription"
+                           formControlName="projectDescription"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="btpprojectsApp.project.budget" for="field_budget">Budget</label>
+                    <input type="number" class="form-control" name="budget" id="field_budget"
+                           formControlName="budget"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="btpprojectsApp.project.numeroMarche" for="field_numeroMarche">Numero Marche</label>
+                    <input type="text" class="form-control" name="numeroMarche" id="field_numeroMarche"
+                           formControlName="numeroMarche"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="btpprojectsApp.project.caution" for="field_caution">Caution</label>
+                    <select class="form-control" id="field_caution" name="caution" formControlName="cautionId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="cautionOption.id" *ngFor="let cautionOption of cautions; trackBy: trackById">{{ cautionOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="btpprojectsApp.project.delivery" for="field_delivery">Delivery</label>
+                    <select class="form-control" id="field_delivery" name="delivery" formControlName="deliveryId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="deliveryOption.id" *ngFor="let deliveryOption of deliveries; trackBy: trackById">{{ deliveryOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="btpprojectsApp.project.orders" for="field_orders">Orders</label>
+                    <select class="form-control" id="field_orders" name="orders" formControlName="ordersId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="ordersOption.id" *ngFor="let ordersOption of orders; trackBy: trackById">{{ ordersOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="btpprojectsApp.project.reglement" for="field_reglement">Reglement</label>
+                    <select class="form-control" id="field_reglement" name="reglement" formControlName="reglementId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="reglementOption.id" *ngFor="let reglementOption of reglements; trackBy: trackById">{{ reglementOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

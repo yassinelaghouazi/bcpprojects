@@ -1,0 +1,34 @@
+{
+  "btpprojectsApp": {
+    "bopportunity": {
+      "home": {
+        "title": "Bopportunities",
+        "createLabel": "Créer un nouveau Bopportunity",
+        "createOrEditLabel": "Créer ou éditer un Bopportunity",
+        "notFound": "Aucun Bopportunity trouvé"
+      },
+      "created": "Un nouveau Bopportunity a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Bopportunity avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Bopportunity avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Bopportunity {{ id }} ?"
+      },
+      "detail": {
+        "title": "Bopportunity"
+      },
+      "idBopportunity": "Id Bopportunity",
+      "dateRemisePlis": "Date Remise Plis",
+      "montantCaution": "Montant Caution",
+      "objetAffaire": "Objet Affaire",
+      "estimationBudget": "Estimation Budget",
+      "commentaire": "Commentaire",
+      "numeroAppelOffre": "Numero Appel Offre",
+      "numeroMarche": "Numero Marche",
+      "url": "Url",
+      "maitreOuvrage": "Maitre Ouvrage",
+      "company": "Company",
+      "caution": "Caution",
+      "project": "Project"
+    }
+  }
+}

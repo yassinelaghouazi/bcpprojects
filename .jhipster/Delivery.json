@@ -1,0 +1,63 @@
+{
+    "name": "Delivery",
+    "fields": [
+        {
+            "fieldName": "idDelivery",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "deliveryDescription",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "deliveryDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "subTotal",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "vatamount",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "total",
+            "fieldType": "Double"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "project",
+            "otherEntityRelationshipName": "delivery",
+            "relationshipName": "project"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "orders",
+            "otherEntityRelationshipName": "delivery",
+            "relationshipName": "orders"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "reglement",
+            "otherEntityRelationshipName": "delivery",
+            "relationshipName": "reglement",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200216155400",
+    "entityTableName": "delivery",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

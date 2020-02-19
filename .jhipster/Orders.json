@@ -1,0 +1,92 @@
+{
+    "name": "Orders",
+    "fields": [
+        {
+            "fieldName": "idOrders",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "ordersDesc",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "totalht",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "totaltva",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "totalttc",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "ordersDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "expectedDelivery",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "tvamoyenne",
+            "fieldType": "Double"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "project",
+            "otherEntityRelationshipName": "orders",
+            "relationshipName": "project"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "provider",
+            "otherEntityRelationshipName": "orders",
+            "relationshipName": "provider"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "delivery",
+            "otherEntityRelationshipName": "orders",
+            "relationshipName": "delivery",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "ordersProducts",
+            "otherEntityRelationshipName": "orders",
+            "relationshipName": "ordersProducts",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "ordersServices",
+            "otherEntityRelationshipName": "orders",
+            "relationshipName": "ordersServices",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "reglement",
+            "otherEntityRelationshipName": "orders",
+            "relationshipName": "reglement",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200216155700",
+    "entityTableName": "orders",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,74 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="bopportunity">
+            <h2><span jhiTranslate="btpprojectsApp.bopportunity.detail.title">Bopportunity</span> {{ bopportunity.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="btpprojectsApp.bopportunity.idBopportunity">Id Bopportunity</span></dt>
+                <dd>
+                    <span>{{ bopportunity.idBopportunity }}</span>
+                </dd>
+                <dt><span jhiTranslate="btpprojectsApp.bopportunity.dateRemisePlis">Date Remise Plis</span></dt>
+                <dd>
+                    <span>{{ bopportunity.dateRemisePlis }}</span>
+                </dd>
+                <dt><span jhiTranslate="btpprojectsApp.bopportunity.montantCaution">Montant Caution</span></dt>
+                <dd>
+                    <span>{{ bopportunity.montantCaution }}</span>
+                </dd>
+                <dt><span jhiTranslate="btpprojectsApp.bopportunity.objetAffaire">Objet Affaire</span></dt>
+                <dd>
+                    <span>{{ bopportunity.objetAffaire }}</span>
+                </dd>
+                <dt><span jhiTranslate="btpprojectsApp.bopportunity.estimationBudget">Estimation Budget</span></dt>
+                <dd>
+                    <span>{{ bopportunity.estimationBudget }}</span>
+                </dd>
+                <dt><span jhiTranslate="btpprojectsApp.bopportunity.commentaire">Commentaire</span></dt>
+                <dd>
+                    <span>{{ bopportunity.commentaire }}</span>
+                </dd>
+                <dt><span jhiTranslate="btpprojectsApp.bopportunity.numeroAppelOffre">Numero Appel Offre</span></dt>
+                <dd>
+                    <span>{{ bopportunity.numeroAppelOffre }}</span>
+                </dd>
+                <dt><span jhiTranslate="btpprojectsApp.bopportunity.numeroMarche">Numero Marche</span></dt>
+                <dd>
+                    <span>{{ bopportunity.numeroMarche }}</span>
+                </dd>
+                <dt><span jhiTranslate="btpprojectsApp.bopportunity.url">Url</span></dt>
+                <dd>
+                    <span>{{ bopportunity.url }}</span>
+                </dd>
+                <dt><span jhiTranslate="btpprojectsApp.bopportunity.caution">Caution</span></dt>
+                <dd>
+                    <div *ngIf="bopportunity.cautionId">
+                        <a [routerLink]="['/caution', bopportunity.cautionId, 'view']">{{ bopportunity.cautionId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="btpprojectsApp.bopportunity.project">Project</span></dt>
+                <dd>
+                    <div *ngIf="bopportunity.projectId">
+                        <a [routerLink]="['/project', bopportunity.projectId, 'view']">{{ bopportunity.projectId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/bopportunity', bopportunity.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

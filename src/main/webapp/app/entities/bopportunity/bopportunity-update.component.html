@@ -1,0 +1,116 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-bopportunity-heading" jhiTranslate="btpprojectsApp.bopportunity.home.createOrEditLabel">Create or edit a Bopportunity</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="btpprojectsApp.bopportunity.idBopportunity" for="field_idBopportunity">Id Bopportunity</label>
+                    <input type="number" class="form-control" name="idBopportunity" id="field_idBopportunity"
+                           formControlName="idBopportunity"/>
+                    <div *ngIf="editForm.get('idBopportunity')!.invalid && (editForm.get('idBopportunity')!.dirty || editForm.get('idBopportunity')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('idBopportunity')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('idBopportunity')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="btpprojectsApp.bopportunity.dateRemisePlis" for="field_dateRemisePlis">Date Remise Plis</label>
+                    <div class="input-group">
+                        <input id="field_dateRemisePlis" type="text" class="form-control" name="dateRemisePlis" ngbDatepicker #dateRemisePlisDp="ngbDatepicker" formControlName="dateRemisePlis"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateRemisePlisDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="btpprojectsApp.bopportunity.montantCaution" for="field_montantCaution">Montant Caution</label>
+                    <input type="number" class="form-control" name="montantCaution" id="field_montantCaution"
+                           formControlName="montantCaution"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="btpprojectsApp.bopportunity.objetAffaire" for="field_objetAffaire">Objet Affaire</label>
+                    <input type="text" class="form-control" name="objetAffaire" id="field_objetAffaire"
+                           formControlName="objetAffaire"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="btpprojectsApp.bopportunity.estimationBudget" for="field_estimationBudget">Estimation Budget</label>
+                    <input type="number" class="form-control" name="estimationBudget" id="field_estimationBudget"
+                           formControlName="estimationBudget"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="btpprojectsApp.bopportunity.commentaire" for="field_commentaire">Commentaire</label>
+                    <input type="text" class="form-control" name="commentaire" id="field_commentaire"
+                           formControlName="commentaire"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="btpprojectsApp.bopportunity.numeroAppelOffre" for="field_numeroAppelOffre">Numero Appel Offre</label>
+                    <input type="text" class="form-control" name="numeroAppelOffre" id="field_numeroAppelOffre"
+                           formControlName="numeroAppelOffre"/>
+                    <div *ngIf="editForm.get('numeroAppelOffre')!.invalid && (editForm.get('numeroAppelOffre')!.dirty || editForm.get('numeroAppelOffre')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('numeroAppelOffre')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="btpprojectsApp.bopportunity.numeroMarche" for="field_numeroMarche">Numero Marche</label>
+                    <input type="text" class="form-control" name="numeroMarche" id="field_numeroMarche"
+                           formControlName="numeroMarche"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="btpprojectsApp.bopportunity.url" for="field_url">Url</label>
+                    <input type="text" class="form-control" name="url" id="field_url"
+                           formControlName="url"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="btpprojectsApp.bopportunity.caution" for="field_caution">Caution</label>
+                    <select class="form-control" id="field_caution" name="caution" formControlName="cautionId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="cautionOption.id" *ngFor="let cautionOption of cautions; trackBy: trackById">{{ cautionOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="btpprojectsApp.bopportunity.project" for="field_project">Project</label>
+                    <select class="form-control" id="field_project" name="project" formControlName="projectId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="projectOption.id" *ngFor="let projectOption of projects; trackBy: trackById">{{ projectOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

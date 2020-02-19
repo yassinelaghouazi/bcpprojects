@@ -1,0 +1,51 @@
+{
+    "name": "MaitreOuvrage",
+    "fields": [
+        {
+            "fieldName": "idMaitreOuvrage",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "nom",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "tel",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "contactPersonne",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "bopportunity",
+            "otherEntityRelationshipName": "maitreOuvrage",
+            "relationshipName": "bopportunity",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "caution",
+            "otherEntityRelationshipName": "maitreouvrage",
+            "relationshipName": "caution",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200216155500",
+    "entityTableName": "maitre_ouvrage",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,99 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="btpprojectsApp.bopportunity.home.title">Bopportunities</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-bopportunity" [routerLink]="['/bopportunity/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="btpprojectsApp.bopportunity.home.createLabel">
+            Create a new Bopportunity
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="bopportunities?.length === 0">
+        <span jhiTranslate="btpprojectsApp.bopportunity.home.notFound">No bopportunities found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="bopportunities?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="idBopportunity"><span jhiTranslate="btpprojectsApp.bopportunity.idBopportunity">Id Bopportunity</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateRemisePlis"><span jhiTranslate="btpprojectsApp.bopportunity.dateRemisePlis">Date Remise Plis</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="montantCaution"><span jhiTranslate="btpprojectsApp.bopportunity.montantCaution">Montant Caution</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="objetAffaire"><span jhiTranslate="btpprojectsApp.bopportunity.objetAffaire">Objet Affaire</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="estimationBudget"><span jhiTranslate="btpprojectsApp.bopportunity.estimationBudget">Estimation Budget</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="commentaire"><span jhiTranslate="btpprojectsApp.bopportunity.commentaire">Commentaire</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="numeroAppelOffre"><span jhiTranslate="btpprojectsApp.bopportunity.numeroAppelOffre">Numero Appel Offre</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="numeroMarche"><span jhiTranslate="btpprojectsApp.bopportunity.numeroMarche">Numero Marche</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="url"><span jhiTranslate="btpprojectsApp.bopportunity.url">Url</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="cautionId"><span jhiTranslate="btpprojectsApp.bopportunity.caution">Caution</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="projectId"><span jhiTranslate="btpprojectsApp.bopportunity.project">Project</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let bopportunity of bopportunities ;trackBy: trackId">
+                    <td><a [routerLink]="['/bopportunity', bopportunity.id, 'view']">{{ bopportunity.id }}</a></td>
+                    <td>{{ bopportunity.idBopportunity }}</td>
+                    <td>{{ bopportunity.dateRemisePlis | date:'mediumDate' }}</td>
+                    <td>{{ bopportunity.montantCaution }}</td>
+                    <td>{{ bopportunity.objetAffaire }}</td>
+                    <td>{{ bopportunity.estimationBudget }}</td>
+                    <td>{{ bopportunity.commentaire }}</td>
+                    <td>{{ bopportunity.numeroAppelOffre }}</td>
+                    <td>{{ bopportunity.numeroMarche }}</td>
+                    <td>{{ bopportunity.url }}</td>
+                    <td>
+                        <div *ngIf="bopportunity.cautionId">
+                            <a [routerLink]="['/caution', bopportunity.cautionId , 'view']" >{{ bopportunity.cautionId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="bopportunity.projectId">
+                            <a [routerLink]="['/project', bopportunity.projectId , 'view']" >{{ bopportunity.projectId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/bopportunity', bopportunity.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/bopportunity', bopportunity.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(bopportunity)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="bopportunities?.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,56 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="delivery">
+            <h2><span jhiTranslate="btpprojectsApp.delivery.detail.title">Delivery</span> {{ delivery.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="btpprojectsApp.delivery.idDelivery">Id Delivery</span></dt>
+                <dd>
+                    <span>{{ delivery.idDelivery }}</span>
+                </dd>
+                <dt><span jhiTranslate="btpprojectsApp.delivery.deliveryDescription">Delivery Description</span></dt>
+                <dd>
+                    <span>{{ delivery.deliveryDescription }}</span>
+                </dd>
+                <dt><span jhiTranslate="btpprojectsApp.delivery.deliveryDate">Delivery Date</span></dt>
+                <dd>
+                    <span>{{ delivery.deliveryDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="btpprojectsApp.delivery.subTotal">Sub Total</span></dt>
+                <dd>
+                    <span>{{ delivery.subTotal }}</span>
+                </dd>
+                <dt><span jhiTranslate="btpprojectsApp.delivery.vatamount">Vatamount</span></dt>
+                <dd>
+                    <span>{{ delivery.vatamount }}</span>
+                </dd>
+                <dt><span jhiTranslate="btpprojectsApp.delivery.total">Total</span></dt>
+                <dd>
+                    <span>{{ delivery.total }}</span>
+                </dd>
+                <dt><span jhiTranslate="btpprojectsApp.delivery.reglement">Reglement</span></dt>
+                <dd>
+                    <div *ngIf="delivery.reglementId">
+                        <a [routerLink]="['/reglement', delivery.reglementId, 'view']">{{ delivery.reglementId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/delivery', delivery.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

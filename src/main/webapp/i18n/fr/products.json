@@ -1,0 +1,26 @@
+{
+  "btpprojectsApp": {
+    "products": {
+      "home": {
+        "title": "Products",
+        "createLabel": "Créer un nouveau Products",
+        "createOrEditLabel": "Créer ou éditer un Products",
+        "notFound": "Aucun Products trouvé"
+      },
+      "created": "Un nouveau Products a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Products avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Products avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Products {{ id }} ?"
+      },
+      "detail": {
+        "title": "Products"
+      },
+      "idProducts": "Id Products",
+      "productsDesc": "Products Desc",
+      "recommendedPrice": "Recommended Price",
+      "recommendedProvider": "Recommended Provider",
+      "ordersProducts": "Orders Products"
+    }
+  }
+}
