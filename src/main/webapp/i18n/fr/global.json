@@ -7,6 +7,21 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entités",
+        "banque": "Banque",
+        "bopportunity": "Bopportunity",
+        "caution": "Caution",
+        "company": "Company",
+        "delivery": "Delivery",
+        "maitreOuvrage": "Maitre Ouvrage",
+        "modePaiement": "Mode Paiement",
+        "orders": "Orders",
+        "ordersProducts": "Orders Products",
+        "ordersServices": "Orders Services",
+        "products": "Products",
+        "project": "Project",
+        "provider": "Provider",
+        "reglement": "Reglement",
+        "services": "Services",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {
