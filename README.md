@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # btpprojects
 
 This application was generated using JHipster 6.7.1, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v6.7.1](https://www.jhipster.tech/documentation-archive/v6.7.1).
@@ -190,9 +191,13 @@ To configure CI for your project, run the ci-cd sub-generator (`jhipster ci-cd`)
 [yarn]: https://yarnpkg.org/
 [webpack]: https://webpack.github.io/
 [angular cli]: https://cli.angular.io/
-[browsersync]: https://www.browsersync.io/
+[browsersync]: https://www.browsersync.io/Vous n'avez pas terminé votre fusion (MERGE_HEAD existe).
 [jest]: https://facebook.github.io/jest/
 [jasmine]: https://jasmine.github.io/2.0/introduction.html
 [protractor]: https://angular.github.io/protractor/
 [leaflet]: https://leafletjs.com/
 [definitelytyped]: https://definitelytyped.org/
+=======
+# bcpprojects
+>>>>>>> c54f1398e570592194cb99a01cece95c2599b85e
+# bcpprojects
